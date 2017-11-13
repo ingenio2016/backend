@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Company;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -22,11 +23,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 
-        'email', 
+        'email',
+        'telephone', 
         'password',
         'verified',
         'verification_token',
         'admin',
+        'company_id'
     ];
 
     /**
@@ -52,5 +55,9 @@ class User extends Authenticatable
 
     public function generarVerificationToken(){
         return str_random(40);
+    }
+
+    public function company(){
+        return $this->belongsTo(Company::class);
     }
 }
