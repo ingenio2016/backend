@@ -7,7 +7,10 @@ use App\User;
 use App\Product;
 use App\Customer;
 use App\Supplier;
+use App\Inventory;
 use App\Warehouse;
+use App\ProductBasket;
+use App\BasketInventory;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
@@ -59,4 +62,19 @@ class Company extends Model
     {
         return $this->hasMany(Warehouse::class);
     }
+
+    public function product_baskets()
+    {
+        return $this->hasMany(ProductBasket::class);
+    }
+
+    public function stocks(){
+        return $this->hasMany(Inventory::class);
+    }
+
+    public function basket_stocks()
+    {
+        return $this->hasMany(BasketInventory::class);
+    }
 }
+

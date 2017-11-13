@@ -69,6 +69,11 @@ Route::resource('product_categories', 'ProductCategory\ProductCategoryController
 Route::resource('taxes', 'Tax\TaxController', ['except' => ['create', 'edit']]);
 
 /**
+* Product Baskets
+**/
+Route::resource('product-baskets', 'ProductBasket\ProductBasketController', ['except' => ['create', 'edit']]);
+
+/**
 * Products
 **/
 Route::resource('products', 'Product\ProductController', ['except' => ['create', 'edit']]);
