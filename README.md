@@ -23,16 +23,16 @@ Homestead es un sub proyecto de laravel para crear maquinas virtuales totalmente
 6. configurar las peticiones del backend.dev
 Ir a la ruta C:\Windows\System32\drivers\etc y abrir el archivo hosts
  y agregar en este caso la siguiente linea
- 
+
     192.168.10.10  backend.dev
- 
+
 7. USO DE VAGRANT PARA CONTROLAR LA MAQUINA VIRTUAL
 
     levantar la maquina con vagrant up y para acceder se usa el comando vagrant ssh
 
 8. MANTENER EL PROYECTO DE LARAVEL ACTUALIZADO
     comando -> composer update
-    
+
 # Package Control
 1. Instalando el package control
 
@@ -54,7 +54,7 @@ ctrl + shift + p para abrir el package control y buscamos SublimeCodeIntel
 	Para eliminar dicho prefijo vamos al archivo RouteServiceProvider ubicado en la carpeta providers del proyecto, ubicamos la configuracion de la ruta para api llamada mapApiRoutes() y eliminamos el Prefix
 
 12. Iniciando con el PROYECTO
-    
+
     En primer Lugar crearemos segun el proyecto los Modelos de Buyer(Comprador) y Seller(Vendedor), como se puede apreciar estos no tienen datos porque estos heredan datos de la tabla User o el modelo User por lo cual se crean los modelos de la siguiente manera
 
     comando-> php artisan make:model Buyer
@@ -80,10 +80,10 @@ ctrl + shift + p para abrir el package control y buscamos SublimeCodeIntel
 
     comando-> php artisan make:controller User/UserController -r
     comando-> php artisan make:controller Seller/SellerController -r
-	comando-> php artisan make:controller Buyer/BuyerController -r
+	  comando-> php artisan make:controller Buyer/BuyerController -r
     comando-> php artisan make:controller Product/ProductController -r
     comando-> php artisan make:controller Transaction/TransactionController -r
-    comando-> php artisan make:controller Category/CategoryController -r 
+    comando-> php artisan make:controller Category/CategoryController -r
 
 14. Creación de las primeras Rutas principales del proyectos
 
@@ -100,3 +100,38 @@ ctrl + shift + p para abrir el package control y buscamos SublimeCodeIntel
 
     La palabra only significa que solo se crearan las rutas nombradas, en este caso seran show e index
     La palabra except significa que seran creadas todas las rutas de recurso excepto las nombradas, en este caso create y edit.
+
+15. Creacion de cada una de las propiedades de los recursos
+
+    La creación de los elementos o propiedades de un recurso se realizan en cada uno de los models de cada recurso; para iniciar con la creación se debe declarar la palabra reservada $fillable que es la que nos indica que ese recurso manejara registros masivos
+
+    protected $fillable = ['propiedades del recurso separada por punto y coma y entre comillas']:
+
+    Si existe algun atributo o propiedad en un recurso que maneje un dos o maximo tres estados posibles de valores en el modelo se pueden especificar valores constantes para que con ello no sea necesario incluir estos valores manualmente cada vez que se llama esa propiedad. Para declarar un valor constante este se hace en el Modelo de la siguiente forma:
+
+    const PRODUCTO_DISPONIBLE = 'valor';
+    const PRODUCTO_NO_DISPONIBLE = 'otro valor';
+
+    Para el caso de las funciones si queremos optimizar el uso de estas constantes y evitar llamarlas en varias partes del codigo se puede declarar una funcion de tipo publica para que ella se encargue de administrar el uso de dichas constantes.
+
+    si existe algun tipo de propiedad que no queramos que sea visualizada en los modelos ni en las respuestas de arrays se puede hacer uso de $hidden, y declarar el o los atributos o propiedades que no queremos que se vean ejm contraseñas, token de seguridad etc.
+
+    ejm
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'verification_token',
+    ];
+
+16. Relaciones entre los Modelos
+
+    Luego de creados los atributos o propiedades principales de cada uno de los recuros ahora se declaran las relaciones entre cada uno de los recursos.
+
+    **Relacion uno a muchos -> hasMany()
+    **Relacion muchos a muchos -> BelongsToMany()
+    **Relacion uno a uno -> BelongsTo()
+
+17. A partir de laravel version 5.4 el charset de la base de datos se cambio a formato "utf8mb4" lo que traduce a que se multiplico por 4 el tamaño maximo de los tipo string. Anteriormente utf8 manejaba menos caracteres. Por esta razon el tamaño por defecto de los string ya no pueden ser de 255 caracteres porque excede el limite de este nuevo charset ya que al multiplicarlo por 4 se excede del limite maximo que manejan los motores de bases de datos que son 767. Para solucionar este inconveniente se agrega el siguiente codigo en el archivo appServiceProvider en el metodo boot:
+
+
+Schema::defaultStringLength(191);

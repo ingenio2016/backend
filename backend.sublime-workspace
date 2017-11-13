@@ -3,10 +3,52 @@
 	{
 		"selected_items":
 		[
+			[
+				"belongs",
+				"belongsTo〔function〕"
+			],
+			[
+				"USUARIO",
+				"USUARIO_VERIFICADO〔constant〕"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/wamp64/www/kubipos/web-version/vendor/robmorgan/phinx/bin/phinx",
+			"settings":
+			{
+				"buffer_size": 1232,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/wamp64/www/kubipos/web-version/phinx.yml",
+			"settings":
+			{
+				"buffer_size": 672,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/wamp64/www/kubipos/web-version/app/Config/database.php",
+			"settings":
+			{
+				"buffer_size": 3014,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp64/www/kubipos/web-version/app/Config/core.php",
+			"settings":
+			{
+				"buffer_size": 14457,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -51,21 +93,22 @@
 	[
 		"/C/APIRestfull/backend",
 		"/C/APIRestfull/backend/app",
-		"/C/APIRestfull/backend/app/Http",
-		"/C/APIRestfull/backend/app/Http/Controllers",
-		"/C/APIRestfull/backend/app/Http/Controllers/Buyer",
-		"/C/APIRestfull/backend/routes"
+		"/C/APIRestfull/backend/app/Providers"
 	],
 	"file_history":
 	[
-		"/C/APIRestfull/backend/routes/api.php",
+		"/C/APIRestfull/backend/app/Providers/AppServiceProvider.php",
 		"/C/APIRestfull/backend/README.md",
+		"/C/APIRestfull/backend/app/Transaction.php",
 		"/C/APIRestfull/backend/app/Seller.php",
+		"/C/APIRestfull/backend/app/Product.php",
+		"/C/APIRestfull/backend/app/Category.php",
 		"/C/APIRestfull/backend/app/Buyer.php",
+		"/C/APIRestfull/backend/app/User.php",
+		"/C/APIRestfull/backend/routes/api.php",
 		"/C/APIRestfull/backend/app/Providers/RouteServiceProvider.php",
 		"/C/APIRestfull/backend/routes/web.php",
 		"/C/APIRestfull/backend/.env",
-		"/C/APIRestfull/backend/app/User.php",
 		"/C/Users/NorteTic SAS/AppData/Roaming/Sublime Text 3/Packages/User/PHP Companion.sublime-settings",
 		"/C/Users/NorteTic SAS/AppData/Roaming/Sublime Text 3/Packages/PHP Companion/PHP Companion.sublime-settings",
 		"/C/APIRestfull/backend/vendor/laravel/framework/src/Illuminate/Notifications/Notifiable.php",
@@ -106,8 +149,124 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/wamp64/www/kubipos/web-version/vendor/robmorgan/phinx/bin/phinx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/wamp64/www/kubipos/web-version/phinx.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 672,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								649,
+								649
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/wamp64/www/kubipos/web-version/app/Config/database.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3014,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2986,
+								2986
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 973.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/wamp64/www/kubipos/web-version/app/Config/core.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1439,
+								1439
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 109.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -192,7 +351,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 293.0,
+	"side_bar_width": 213.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
